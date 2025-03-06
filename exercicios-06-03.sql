@@ -8,7 +8,6 @@ begin
 end;
 
 --2
-SET SERVEROUTPUT ON
 
 DECLARE
     impar NUMBER:= 0;
@@ -24,5 +23,8 @@ begin
     
     DBMS_OUTPUT.PUT_LINE('A QUANTIADE DE PARES: '|| PAR);
     DBMS_OUTPUT.PUT_LINE('A QUANTIADE DE IMPARES: '|| IMPAR);
+    
 
 end;
+
+--3

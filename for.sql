@@ -1,0 +1,8 @@
+SET SERVEROUTPUT ON
+DECLARE 
+V_CONTADOR NUMBER(2):=1;
+begin
+  for V_CONTADOR in 1..20  loop
+    DBMS_OUTPUT.PUT_LINE(V_CONTADOR)
+  end loop
+end;

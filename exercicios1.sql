@@ -5,7 +5,7 @@ DECLARE
     aumento NUMBER;
 BEGIN
     aumento := salariominimo + (salariominimo * 0.25);
-    dbms_output.put_line('O valor do novo salário mínimo com 25% é: ' || aumento);
+    dbms_output.put_line('O valor do novo salï¿½rio mï¿½nimo com 25% ï¿½: ' || aumento);
 END;
 
 /
@@ -18,7 +18,7 @@ DECLARE
 
 BEGIN
     novovalor := quantiadolar * conversao;
-    dbms_output.put_line('Sua quantia de dólares em reais é: R$' || novovalor);
+    dbms_output.put_line('Sua quantia de dï¿½lares em reais ï¿½: R$' || novovalor);
 END;
 /
 
@@ -34,7 +34,7 @@ BEGIN
     parcelas := valorDaCompra + (valorDaCompra * taxaDeJuros);
     valorParcela := parcelas/numDeParcelas;
     
-    dbms_output.put_line('Valor à vista: ' || valorDaCompra);
+    dbms_output.put_line('Valor ï¿½ vista: ' || valorDaCompra);
     dbms_output.put_line('Valor das parcelas: ' || valorParcela);
     dbms_output.put_line('Valor total da compra: ' || parcelas);
    

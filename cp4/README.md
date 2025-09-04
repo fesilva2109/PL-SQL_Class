@@ -85,6 +85,9 @@ Foi desenvolvido um **dashboard no Power BI (`cp4_v1.pbix`)**, conectado ao Data
 - Qual foi o **produto mais rentável**?  
 - Qual é o **perfil de consumo dos clientes**?  
 
+- `prints\faturamento_produto.png`
+- `prints\overview.png`
+
 ---
 
 ## 📌 Documentação de Dados

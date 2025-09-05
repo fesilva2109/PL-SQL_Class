@@ -2,6 +2,9 @@
 
 Este documento apresenta a entrega do projeto conforme o **Escopo da Entrega** definido em sala de aula. O trabalho foi desenvolvido a partir do modelo de pedidos utilizado nas atividades, seguindo as etapas de modelagem, ETL e análise em dashboard.
 
+- Felipe Silva Maciel - RM555307
+- Eduardo Henrique Strapazzon Nagado - RM558158
+
 ---
 
 ## 🚀 Como Executar

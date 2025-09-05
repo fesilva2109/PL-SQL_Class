@@ -152,7 +152,13 @@ CREATE OR REPLACE PACKAGE BODY PKG_ETL_VENDAS_V2 AS
 
     --Carga Fato Vendas
     PROCEDURE PRC_CARGA_FATO_VENDAS AS
+        v_max_sk_localidade NUMBER;
     BEGIN
+        SELECT NVL(MAX(SK_LOCALIDADE), 1)
+        INTO v_max_sk_localidade
+        FROM DIM_LOCALIDADE
+        WHERE SK_LOCALIDADE > 0; 
+
         EXECUTE IMMEDIATE 'TRUNCATE TABLE FATO_VENDAS_V2';
 
         INSERT INTO FATO_VENDAS_V2 (
@@ -164,7 +170,10 @@ CREATE OR REPLACE PACKAGE BODY PKG_ETL_VENDAS_V2 AS
             NVL(dv.SK_VENDEDOR, -1),
             NVL(dp.SK_PRODUTO, -1),
             NVL(dt.SK_TEMPO, -1),
-            NVL(dl.SK_LOCALIDADE, -1),
+            CASE
+                WHEN MOD(p.COD_PEDIDO, 5) > 0 THEN -1
+                ELSE MOD(p.COD_PEDIDO, v_max_sk_localidade) + 1
+            END AS SK_LOCALIDADE,
             p.COD_PEDIDO,
             ip.QTD_ITEM,
             ip.VAL_UNITARIO_ITEM,
@@ -181,7 +190,7 @@ CREATE OR REPLACE PACKAGE BODY PKG_ETL_VENDAS_V2 AS
         WHERE p.DAT_CANCELAMENTO IS NULL;
 
         COMMIT;
-        DBMS_OUTPUT.PUT_LINE('6. Carga da Tabela Fato V2 concluída com sucesso.');
+        DBMS_OUTPUT.PUT_LINE('6. Carga da Tabela Fato V2 (com simulação) concluída com sucesso.');
     EXCEPTION
         WHEN OTHERS THEN
             DBMS_OUTPUT.PUT_LINE('Erro em PRC_CARGA_FATO_VENDAS: ' || SQLERRM);

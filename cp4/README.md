@@ -10,7 +10,8 @@ Para recriar e popular o ambiente do Data Warehouse, execute os scripts SQL na s
 
 1. **`1_CRIACAO_AMBIENTE.sql`** → Apaga qualquer estrutura antiga e cria as tabelas de Dimensão, Fato e as `SEQUENCEs` necessárias.  
 2. **`2_PACKAGE_ETL.sql`** → Compila o `PACKAGE SPEC` e o `PACKAGE BODY` com toda a lógica de ETL.  
-3. **`3_TRIGGER EXECUCAO.sql`** → Cria a `TRIGGER` de auditoria e, em seguida, executa o processo de carga completo chamando a procedure `PKG_ETL_VENDAS.PRC_CARGA_GERAL_ETL`.  
+3. **`3_TRIGGER EXECUCAO.sql`** → Cria a `TRIGGER` de auditoria.PRC_CARGA_GERAL_ETL`.  
+4. **`4_EXECUCAO_ETL.sql`** → Executa o processo de carga completo chamando a procedure `PKG_ETL_VENDAS.PRC_CARGA_GERAL_ETL`. 
 ---
 
 ## 📌 Desenvolvimento do Modelo Estrela
@@ -84,9 +85,6 @@ Foi desenvolvido um **dashboard no Power BI (`cp4_v1.pbix`)**, conectado ao Data
 - Qual é o volume de vendas segmentado por **estado, ano, mês, vendedor e cliente**?  
 - Qual foi o **produto mais rentável**?  
 - Qual é o **perfil de consumo dos clientes**?  
-
-- `prints\faturamento_produto.png`
-- `prints\overview.png`
 
 ---
 
